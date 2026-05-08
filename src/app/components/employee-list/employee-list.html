@@ -1,0 +1,17 @@
+<div style="padding:2rem">
+  <h2>All Employees</h2>
+  <table border="1" cellpadding="10" style="width:100%;border-collapse:collapse">
+    <tr style="background:#e8eaf6">
+      <th>Name</th><th>Email</th><th>Department</th><th>Position</th><th>Action</th>
+    </tr>
+    @for (e of employees; track e.id) {
+    <tr>
+      <td>{{e.name}}</td>
+      <td>{{e.email}}</td>
+      <td>{{e.department}}</td>
+      <td>{{e.position}}</td>
+      <td><button (click)="delete(e.id)" style="background:red;color:white;border:none;padding:5px 10px;cursor:pointer">Delete</button></td>
+    </tr>
+    }
+  </table>
+</div>
