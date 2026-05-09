@@ -1,0 +1,22 @@
+<div style="padding:2rem">
+  <h2>Attendance Report</h2>
+  <select [(ngModel)]="selectedId" (change)="filter()" style="padding:10px;font-size:1rem;margin-bottom:1rem">
+    <option value="">All Employees</option>
+    <option *ngFor="let e of employees" [value]="e.id">{{e.name}}</option>
+  </select>
+  <table border="1" cellpadding="10" style="width:100%;border-collapse:collapse">
+    <tr style="background:#e8eaf6">
+      <th>Employee</th><th>Date</th><th>Check In</th><th>Check Out</th><th>Status</th>
+    </tr>
+    <tr *ngFor="let r of records">
+      <td>{{getName(r.employeeId)}}</td>
+      <td>{{r.date}}</td>
+      <td>{{r.checkIn}}</td>
+      <td>{{r.checkOut}}</td>
+      <td [style.color]="r.status==='ABSENT'?'red':r.status==='LATE'?'orange':'green'">
+        <strong>{{r.status}}</strong>
+      </td>
+    </tr>
+    <tr *ngIf="records.length === 0"><td colspan="5" style="text-align:center">No records found</td></tr>
+  </table>
+</div>
