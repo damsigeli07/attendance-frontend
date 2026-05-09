@@ -1,0 +1,22 @@
+<div style="padding:2rem;max-width:450px">
+  <h2>Mark Attendance</h2>
+  <div style="display:flex;flex-direction:column;gap:1rem">
+    <select [(ngModel)]="record.employeeId" style="padding:10px;font-size:1rem">
+      <option value="">-- Select Employee --</option>
+      <option *ngFor="let e of employees" [value]="e.id">{{e.name}} ({{e.department}})</option>
+    </select>
+    <label>Date</label>
+    <input type="date" [(ngModel)]="record.date" style="padding:10px;font-size:1rem"/>
+    <label>Check In Time</label>
+    <input type="time" [(ngModel)]="record.checkIn" style="padding:10px;font-size:1rem"/>
+    <label>Check Out Time</label>
+    <input type="time" [(ngModel)]="record.checkOut" style="padding:10px;font-size:1rem"/>
+    <select [(ngModel)]="record.status" style="padding:10px;font-size:1rem">
+      <option>PRESENT</option>
+      <option>ABSENT</option>
+      <option>LATE</option>
+    </select>
+    <button (click)="submit()" style="padding:12px;background:#1a237e;color:white;border:none;font-size:1rem;cursor:pointer">Mark Attendance</button>
+    <p style="color:green;font-weight:bold">{{message}}</p>
+  </div>
+</div>
